@@ -12,13 +12,11 @@ const ShoutoutList = () => {
     getAllShoutouts().then((res) => setAllShoutouts(res));
   }, []);
 
-  const addShoutoutHandler = (shoutout: Shoutout) => {
-    setAllShoutouts((prev) => [...prev, shoutout]);
-  };
+  const onAddShoutout = (shoutout: Shoutout) => {};
 
   return (
     <div className="ShoutoutList">
-      <AddShoutoutForm shoutout={addShoutoutHandler} />
+      <AddShoutoutForm shoutout={onAddShoutout} />
       <ul>
         {allShoutouts?.map((item) => (
           <SingleShoutout key={item._id} shoutout={item} />
