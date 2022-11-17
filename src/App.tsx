@@ -1,28 +1,23 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { getAllShoutouts } from "./services/shoutoutApiService";
-import Shoutout from "./models/Shoutout";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
+import Header from "./components/Header";
+import ShoutoutList from "./components/ShoutoutList";
 
 function App() {
-  const [allShoutouts, setAllShoutouts] = useState<Shoutout[]>();
-  // getAllShoutouts().then((res) => console.log(res));
-
-  useEffect(() => {
-    getAllShoutouts().then((res) => setAllShoutouts(res));
-  }, []);
-
   return (
     <div className="App">
-      <ul>
-        {allShoutouts?.map((item) => (
-          <li key={item._id}>
-            <p>To: {item.to}</p>
-            <p>From: {item.from}</p>
-            <p>"{item.text}"</p>
-          </li>
-        ))}
-      </ul>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<ShoutoutList />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

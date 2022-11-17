@@ -1,0 +1,24 @@
+.SingleShoutout {
+  background-color: #ffffff;
+  border: 1px solid #cacaca;
+  border-radius: 5px;
+  list-style: none;
+  text-align: left;
+  padding: 0 20px;
+  line-height: 0;
+  margin: 0 10px;
+}
+
+.SingleShoutout .shoutout-to {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.SingleShoutout .shoutout-from {
+  color: grey;
+}
+
+.SingleShoutout .shoutout-text {
+  margin-top: 35px;
+  font-size: 22px;
+}
